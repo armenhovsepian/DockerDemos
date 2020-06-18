@@ -1,47 +1,53 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+<style>
+    pre {
+        text-align: left;
+    }
+</style>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Dockerfile</h1>
     <p>
+        <h3>Option 1</h3>
         <pre>
-            FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim AS base
+            # Download the aspnetcore image from the hub repository, so it actually contains the .NET Core and you don’t need to put it inside the image.
+            FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+
+            # Sets our working directory in the app folder, inside the container we are building.
             WORKDIR /app
 
-            # Copy csproj and restore as distinct layers
-            COPY *.csproj ./
-            RUN dotnet restore
+            # Copy the contents of the publish folder into the app folder on the image.
+            COPY ./publish .
 
-            # Copy everything else and build
-            COPY . ./
-            RUN dotnet publish -c Release -o out
+            # This line tells to docker it should run the dotnet command with AspDotNetCoreApp.dll as parameter.
+            ENTRYPOINT ["dotnet", "AspDotNetCoreApp.dll"]
+        </pre>
+    </p>
 
-            # Build runtime image
-            FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
-            WORKDIR /app
-            COPY --from=build-env /app/out .
-            ENTRYPOINT ["dotnet", "aspdotnetcoreapp.dll"]
+    <p>
+        <h3>Option 2</h3>
+        <pre>
+        <samp>
+                FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+                WORKDIR /app
+
+                # Copy csproj and restore as distinct layers
+                COPY *.csproj ./
+                RUN dotnet restore
+
+                # Copy everything else and build
+                COPY . ./
+                RUN dotnet publish -c Release -o out
+
+                # Build runtime image
+                FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+                WORKDIR /app
+                COPY --from=build-env /app/out .
+                ENTRYPOINT ["dotnet", "AspDotNetCoreApp.dll"]
+
+            </samp>
         </pre>
 
-        <dode>
-            FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
-            WORKDIR /app
-
-            # Copy csproj and restore as distinct layers
-            COPY *.csproj ./
-            RUN dotnet restore
-
-            # Copy everything else and build
-            COPY . ./
-            RUN dotnet publish -c Release -o out
-
-            # Build runtime image
-            FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
-            WORKDIR /app
-            COPY --from=build-env /app/out .
-            ENTRYPOINT ["dotnet", "AspDotNetCoreApp.dll"]
-
-        </dode>
     </p>
 </div>
