@@ -5,7 +5,7 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>
-        <code>
+        <pre>
             FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim AS base
             WORKDIR /app
 
@@ -22,7 +22,7 @@
             WORKDIR /app
             COPY --from=build-env /app/out .
             ENTRYPOINT ["dotnet", "aspdotnetcoreapp.dll"]
-        </code>
+        </pre>
 
         <dode>
             FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
