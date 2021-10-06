@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspDotNetCoreApp", "AspDotNetCoreApp\AspDotNetCoreApp.csproj", "{D1D436E5-FC38-4642-964D-FD4026412681}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspDotNetCoreApp", "AspDotNetCoreApp\AspDotNetCoreApp.csproj", "{D1D436E5-FC38-4642-964D-FD4026412681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiDemo", "ApiDemo\ApiDemo.csproj", "{5DFDCB79-63BE-47B3-A7CB-6982496184AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDemo", "ConsoleDemo\ConsoleDemo.csproj", "{65A80E96-00DD-4DFC-A6E7-E4A322DC1E87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{D1D436E5-FC38-4642-964D-FD4026412681}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1D436E5-FC38-4642-964D-FD4026412681}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1D436E5-FC38-4642-964D-FD4026412681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DFDCB79-63BE-47B3-A7CB-6982496184AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DFDCB79-63BE-47B3-A7CB-6982496184AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DFDCB79-63BE-47B3-A7CB-6982496184AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DFDCB79-63BE-47B3-A7CB-6982496184AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A80E96-00DD-4DFC-A6E7-E4A322DC1E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A80E96-00DD-4DFC-A6E7-E4A322DC1E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A80E96-00DD-4DFC-A6E7-E4A322DC1E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A80E96-00DD-4DFC-A6E7-E4A322DC1E87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
